@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 60px;
+        }
+
+        body {
+            background-image: url("https://img.freepik.com/free-photo/grapes-strawberries-pineapple-kiwi-apricot-banana-whole-pineapple_23-2147968680.jpg?semt=ais_hybrid&w=740");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px;
+            gap: 20px;
+        }
+
+        .fruit-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 250px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .fruit-card:hover {
+            transform: scale(1.05);
+        }
+
+        .fruit-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .fruit-card h3 {
+            margin: 10px 0;
+        }
+
+        .fruit-info {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .fruit-info.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .fruit-info img {
+            width: 25%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .fruit-card {
+                width: 45%;
+            }
+            .container{
+               justify-content: space-around;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .fruit-card {
+                width: 90%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Fruit Information Page</h1>
+        <p>Click on a fruit to learn more about it!</p>
+    </header>
+
+    <div class="container">
+        <div class="fruit-card" onclick="showInfo('banana')">
+            <img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24" alt="Banana">
+            <h3>Banana</h3>
+            <p>High in potassium and great for energy.</p>
+        </div>
+        <div class="fruit-card" onclick="showInfo('cherry')">
+            <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b" alt="Cherry">
+            <h3>Cherry</h3>
+            <p>Sweet and tart, perfect for snacking.</p>
+        </div>
+        <div class="fruit-card" onclick="showInfo('pineapple')">
+            <img src="https://images.unsplash.com/photo-1587883012610-e3df17d41270" alt="Pineapple">
+            <h3>Pineapple</h3>
+            <p>Juicy and tropical, rich in vitamin C.</p>
+        </div>
+        <div class="fruit-card" onclick="showInfo('watermelon')">
+            <img src="https://images.unsplash.com/photo-1589984662646-e7b2e4962f18" alt="Watermelon">
+            <h3>Watermelon</h3>
+            <p>Refreshing and hydrating summer fruit.</p>
+        </div>
+        <div class="fruit-card" onclick="showInfo('orange')">
+            <img src="https://images.unsplash.com/photo-1599076480086-fd46f116eb8c" alt="Orange">
+            <h3>Orange</h3>
+            <p>Sweet and tangy, full of vitamin C.</p>
+        </div>
+        <div class="fruit-card" onclick="showInfo('avocado')">
+            <img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578" alt="Avocado">
+            <h3>Avocado</h3>
+            <p>Creamy and rich in healthy fats.</p>
+        </div>
+        <div class="fruit-card" onclick="showInfo('kiwi')">
+            <img src="https://images.unsplash.com/photo-1571575173700-afb9492e6a50" alt="Kiwi">
+            <h3>Kiwi</h3>
+            <p>Tangy and packed with nutrients.</p>
+        </div>
+        <div class="fruit-card" onclick="showInfo('lychee')">
+            <img src="https://images.unsplash.com/photo-1597975371270-cf80e4f54921" alt="Lychee">
+            <h3>Lychee</h3>
+            <p>Sweet and aromatic tropical fruit.</p>
+        </div>
+        <div class="fruit-card" onclick="showInfo('melon')">
+            <img src="https://images.unsplash.com/photo-1605674073932-262014682e46" alt="Melon">
+            <h3>Melon</h3>
+            <p>Sweet and hydrating summer treat.</p>
+        </div>
+    </div>
+
+    <div id="banana" class="fruit-info">
+        <h2>Banana</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Banana Image">
+        <p><strong>Calories:</strong> 89 kcal</p>
+        <p><strong>Carbohydrates:</strong> 23g</p>
+        <p><strong>Protein:</strong> 1.1g</p>
+        <p><strong>Vitamins:</strong> Vitamin B6, Vitamin C</p>
+        <p><strong>Body Parts Benefited:</strong> Muscles, Heart</p>
+        <p><strong>Origin:</strong> Southeast Asia</p>
+    </div>
+
+    <div id="cherry" class="fruit-info">
+        <h2>Cherry</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Cherry_Stella444.jpg" alt="Cherry Image">
+        <p><strong>Calories:</strong> 97 kcal</p>
+        <p><strong>Carbohydrates:</strong> 25g</p>
+        <p><strong>Protein:</strong> 1g</p>
+        <p><strong>Vitamins:</strong> Vitamin C, Potassium</p>
+        <p><strong>Body Parts Benefited:</strong> Heart, Muscles, Sleep Quality</p>
+        <p><strong>Origin:</strong> Europe & Asia</p>
+    </div>
+
+    <div id="pineapple" class="fruit-info">
+        <h2>Pineapple</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Pineapple_and_cross_section.jpg" alt="Pineapple Image">
+        <p><strong>Calories:</strong> 82 kcal</p>
+        <p><strong>Carbohydrates:</strong> 22g</p>
+        <p><strong>Protein:</strong> 0.9g</p>
+        <p><strong>Vitamins:</strong> Vitamin C, Manganese</p>
+        <p><strong>Body Parts Benefited:</strong> Immune System, Digestion</p>
+        <p><strong>Origin:</strong> South America</p>
+    </div>
+
+    <div id="watermelon" class="fruit-info">
+        <h2>Watermelon</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Watermelon.jpg" alt="Watermelon Image">
+        <p><strong>Calories:</strong> 30 kcal</p>
+        <p><strong>Carbohydrates:</strong> 7.6g</p>
+        <p><strong>Protein:</strong> 0.6g</p>
+        <p><strong>Vitamins:</strong> Vitamin C, Vitamin A</p>
+        <p><strong>Body Parts Benefited:</strong> Heart, Hydration, Skin</p>
+        <p><strong>Origin:</strong> Africa</p>
+    </div>
+
+    <div id="orange" class="fruit-info">
+        <h2>Orange</h2>
+        <img src="https://upload.wikimediaorg/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg" alt="Orange Image">
+        <p><strong>Calories:</strong> 47 kcal</p>
+        <p><strong>Carbohydrates:</strong> 12g</p>
+        <p><strong>Protein:</strong> 0.9g</p>
+        <p><strong>Vitamins:</strong> Vitamin C, Vitamin A</p>
+        <p><strong>Body Parts Benefited:</strong> Immune System, Skin</p>
+        <p><strong>Origin:</strong> Southeast Asia</p>
+    </div>
+
+    <div id="avocado" class="fruit-info">
+        <h2>Avocado</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Hass-Avocado.jpg" alt="Avocado Image">
+        <p><strong>Calories:</strong> 322 kcal</p>
+        <p><strong>Carbohydrates:</strong> 17g</p>
+        <p><strong>Protein:</strong> 4g</p>
+        <p><strong>Vitamins:</strong> Vitamin K, Vitamin B6</p>
+        <p><strong>Body Parts Benefited:</strong> Heart, Brain, Skin</p>
+        <p><strong>Origin:</strong> Central America</p>
+    </div>
+
+    <div id="kiwi" class="fruit-info">
+        <h2>Kiwi</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Kiwi_aka.jpg" alt="Kiwi Image">
+        <p><strong>Calories:</strong> 64 kcal</p>
+        <p><strong>Carbohydrates:</strong> 14g</p>
+        <p><strong>Protein:</strong> 1g</p>
+        <p><strong>Vitamins:</strong> Vitamin C, Vitamin K</p>
+        <p><strong>Body Parts Benefited:</strong> Heart, Skin, Digestive System</p>
+        <p><strong>Origin:</strong> China</p>
+    </div>
+
+    <div id="lychee" class="fruit-info">
+        <h2>Lychee</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Lychee_sinensis_fruits.jpg" alt="Lychee Image">
+        <p><strong>Calories:</strong> 66 kcal</p>
+        <p><strong>Carbohydrates:</strong> 16g</p>
+        <p><strong>Protein:</strong> 0.8g</p>
+        <p><strong>Vitamins:</strong> Vitamin C</p>
+        <p><strong>Body Parts Benefited:</strong> Skin, Immune System</p>
+        <p><strong>Origin:</strong> China</p>
+    </div>
+
+    <div id="melon" class="fruit-info">
+        <h2>Melon</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Cantaloupe-cut-4.jpg" alt="Melon Image">
+        <p><strong>Calories:</strong> 34 kcal</p>
+        <p><strong>Carbohydrates:</strong> 8g</p>
+        <p><strong>Protein:</strong> 0.8g</p>
+        <p><strong>Vitamins:</strong> Vitamin A, Vitamin C</p>
+        <p><strong>Body Parts Benefited:</strong> Hydration, Skin</p>
+        <p><strong>Origin:</strong> Africa, Asia</p>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Fruit Information</p>
+    </footer>
+
+    <script>
+        function showInfo(fruit) {
+            var infoDivs = document.querySelectorAll('.fruit-info');
+            infoDivs.forEach(function(div) {
+                div.classList.remove('show');
+            });
+
+            document.getElementById(fruit).classList.add('show');
+        }
+    </script>
+</body>
+</html>
